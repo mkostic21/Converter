@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_size">24sp</dimen>
+    <dimen name="header_padding_vertical">20dp</dimen>
+    <dimen name="button_margin">10dp</dimen>
+    <dimen name="button_padding_vertical">20dp</dimen>
+    <dimen name="input_width">200dp</dimen>
+    <dimen name="input_margin_top">100dp</dimen>
+    <dimen name="label_padding_top">30dp</dimen>
+    <dimen name="spinner_padding_top">10dp</dimen>
+    <dimen name="export_button_margin_vertical">20dp</dimen>
+    <dimen name="reclycler_item_height">100dp</dimen>
+    <dimen name="recycler_item_text_size">16sp</dimen>
+    <dimen name="recycler_item_margin">20dp</dimen>
+    <dimen name="recycler_item_image_button_XY">40dp</dimen>
+</resources>

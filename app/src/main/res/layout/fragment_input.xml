@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InputFragment">
+
+    <EditText
+        android:id="@+id/edInput"
+        android:layout_width="@dimen/input_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/input_margin_top"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/from"
+        android:layout_below="@id/edInput"
+        android:paddingTop="@dimen/label_padding_top"
+        android:layout_centerHorizontal="true"/>
+    <Spinner
+        android:id="@+id/spinFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFrom"
+        android:paddingTop="@dimen/spinner_padding_top"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tvInto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/into"
+        android:layout_below="@id/spinFrom"
+        android:paddingTop="@dimen/label_padding_top"
+        android:layout_centerHorizontal="true"/>
+    <Spinner
+        android:id="@+id/spinInto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvInto"
+        android:paddingTop="@dimen/spinner_padding_top"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
