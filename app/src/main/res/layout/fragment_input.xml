@@ -45,5 +45,11 @@
         android:paddingTop="@dimen/spinner_padding_top"
         android:layout_centerHorizontal="true"/>
 
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/convert"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
