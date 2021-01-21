@@ -16,30 +16,35 @@
         android:paddingVertical="@dimen/header_padding_vertical"/>
 
     <Button
+        android:id="@+id/btnLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/length"
         android:layout_margin="@dimen/button_margin"
         android:paddingVertical="@dimen/button_padding_vertical"/>
     <Button
+        android:id="@+id/btnArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/area"
         android:layout_margin="@dimen/button_margin"
         android:paddingVertical="@dimen/button_padding_vertical"/>
     <Button
+        android:id="@+id/btnVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/volume"
         android:layout_margin="@dimen/button_margin"
         android:paddingVertical="@dimen/button_padding_vertical"/>
     <Button
+        android:id="@+id/btnMass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/mass"
         android:layout_margin="@dimen/button_margin"
         android:paddingVertical="@dimen/button_padding_vertical"/>
     <Button
+        android:id="@+id/btnTemperature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/temperature"

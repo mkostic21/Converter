@@ -6,10 +6,11 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ButtonClickListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -35,5 +36,10 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new hr.ferit.converter.PagerAdapter(getSupportFragmentManager(),
                 FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(pagerAdapter);
+    }
+
+    @Override
+    public void onButtonClick(String conversionType) {
+        //TODO click method
     }
 }
