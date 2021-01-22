@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".InputFragment">
 
+    <TextView
+        android:id="@+id/tvCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CURRENT"
+        android:textSize="@dimen/header_size"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
     <EditText
         android:id="@+id/edInput"
         android:layout_width="@dimen/input_width"
