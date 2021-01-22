@@ -15,9 +15,7 @@ import android.widget.Button;
 public class HomeFragment extends Fragment {
 
     private Button btnLength;
-    private Button btnArea;
     private Button btnMass;
-    private Button btnVolume;
     private Button btnTemperature;
     private ButtonClickListener clickListener;
 
@@ -40,10 +38,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupListeners() {
-        btnArea.setOnClickListener(view -> {
-            String conversionType = btnArea.getText().toString();
-            clickListener.onButtonClick(conversionType);
-        });
 
         btnLength.setOnClickListener(view -> {
             String conversionType = btnLength.getText().toString();
@@ -55,11 +49,6 @@ public class HomeFragment extends Fragment {
             clickListener.onButtonClick(conversionType);
         });
 
-        btnVolume.setOnClickListener(view -> {
-            String conversionType = btnVolume.getText().toString();
-            clickListener.onButtonClick(conversionType);
-        });
-
         btnTemperature.setOnClickListener(view -> {
             String conversionType = btnTemperature.getText().toString();
             clickListener.onButtonClick(conversionType);
@@ -67,10 +56,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void initViews(View view) {
-        btnArea = view.findViewById(R.id.btnArea);
         btnLength = view.findViewById(R.id.btnLength);
         btnMass = view.findViewById(R.id.btnMass);
-        btnVolume = view.findViewById(R.id.btnVolume);
         btnTemperature = view.findViewById(R.id.btnTemperature);
     }
 
