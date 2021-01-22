@@ -17,6 +17,7 @@ import android.widget.Spinner;
 public class InputFragment extends Fragment {
 
     private EditText edInput;
+    private EditText tvResult;
     private Spinner spinFrom;
     private Spinner spinInto;
     private Button btnConvert;
@@ -48,5 +49,6 @@ public class InputFragment extends Fragment {
         spinFrom = view.findViewById(R.id.spinFrom);
         spinInto = view.findViewById(R.id.spinInto);
         btnConvert = view.findViewById(R.id.btnConvert);
+        tvResult = view.findViewById(R.id.tvResult);
     }
 }
