@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Converter</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="conversion_type">CONVERSION TYPE</string>
     <string name="length">length</string>
@@ -12,4 +12,31 @@
     <string name="into">Into:</string>
     <string name="export">Export</string>
     <string name="convert">convert</string>
+
+    <string-array name="length_array">
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yards</item>
+        <item>Miles</item>
+        <item>Milimeters</item>
+        <item>Centimeters</item>
+        <item>Meters</item>
+        <item>Kilometers</item>
+    </string-array>
+
+    <string-array name="mass_array">
+        <item>Tonnes</item>
+        <item>Kilograms</item>
+        <item>Grams</item>
+        <item>Miligrams</item>
+        <item>Micrograms</item>
+        <item>Stones</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+    </string-array>
+
+    <string-array name="temperature_array">
+         <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
 </resources>
