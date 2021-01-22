@@ -5,17 +5,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HistoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HistoryFragment extends Fragment {
+
+    private RecyclerAdapter adapter;
 
     public static HistoryFragment newInstance() {
         return new HistoryFragment();
@@ -32,5 +31,15 @@ public class HistoryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //TODO main prog here
+        setupRecycler(view);
     }
+
+    private void setupRecycler(View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        adapter = new RecyclerAdapter();
+        recyclerView.setAdapter(adapter);
+    }
+
+    //TODO: onItemClick here:
 }
