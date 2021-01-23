@@ -16,4 +16,5 @@
     <dimen name="convert_button_margin">50dp</dimen>
     <dimen name="layout_padding_vertical">50dp</dimen>
     <dimen name="button_text_size">20sp</dimen>
+    <dimen name="convert_button_margin_top">100dp</dimen>
 </resources>
