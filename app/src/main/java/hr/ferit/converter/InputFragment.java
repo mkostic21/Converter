@@ -31,7 +31,6 @@ public class InputFragment extends Fragment {
 
     private String conversionType = "";
 
-    //TODO add mass and temp. ratios
     private final static float[] LENGTH_RATIOS = {0.393701f, 0.0328084f, 0.0109361f, 6.21371e-6f, 10.0f, 1.0f, 0.01f, 1.0e-5f};
     private final static float[] MASS_RATIOS = {0.000001f, 0.001f, 1.0f, 1000f, 1000000f, 0.000157473f, 0.002204623f, 0.03527396f};
 
@@ -68,97 +67,97 @@ public class InputFragment extends Fragment {
             if (conversionType != null && !conversionType.isEmpty()) {
                 tvCurrent.setText(conversionType);
 
-                //TODO: method to get which ratios to use
-                switch (conversionType){
+                switch (conversionType) {
                     //TODO: REFORMAT!!
                     case "length":
                         ArrayAdapter<CharSequence> lengthAdapter = ArrayAdapter.createFromResource(this.getContext(), R.array.length_array, android.R.layout.simple_spinner_item);
                         lengthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
                         spinFrom.setAdapter(lengthAdapter);
                         spinInto.setAdapter(lengthAdapter);
+                        break;
+
                     case "mass":
                         ArrayAdapter<CharSequence> massAdapter = ArrayAdapter.createFromResource(this.getContext(), R.array.mass_array, android.R.layout.simple_spinner_item);
                         massAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
                         spinFrom.setAdapter(massAdapter);
                         spinInto.setAdapter(massAdapter);
+                        break;
+
                     case "temperature":
                         ArrayAdapter<CharSequence> tempAdapter = ArrayAdapter.createFromResource(this.getContext(), R.array.temperature_array, android.R.layout.simple_spinner_item);
                         tempAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
                         spinFrom.setAdapter(tempAdapter);
                         spinInto.setAdapter(tempAdapter);
+                        break;
                 }
             }
-
             //TODO: history data handling here:
         }
     }
 
     private void setupListeners() {
-        btnConvert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String input = edInput.getText().toString();
+        btnConvert.setOnClickListener(view -> {
+            String input = edInput.getText().toString();
+            //TODO: REFORMAT!
+            //todo: add every input to history
+            switch (conversionType) {
+                case "length":
+                    if (input.trim().length() != 0) {
+                        int index1 = spinFrom.getSelectedItemPosition();
+                        int index2 = spinInto.getSelectedItemPosition();
+                        float value = Float.parseFloat(input);
+                        float result = value / LENGTH_RATIOS[index1] * LENGTH_RATIOS[index2];
+                        tvResult.setText(String.valueOf(result));
+                    }
+                    break;
 
-                //TODO: REFORMAT!
-                //todo: add every input to history
-                switch (conversionType) {
-                    case "length":
-                        if (input.trim().length() != 0) {
-                            int index1 = spinFrom.getSelectedItemPosition();
-                            int index2 = spinInto.getSelectedItemPosition();
-                            float value = Float.parseFloat(input);
-                            float result = value / LENGTH_RATIOS[index1] * LENGTH_RATIOS[index2];
+                case "mass":
+                    if (input.trim().length() != 0) {
+                        int index1 = spinFrom.getSelectedItemPosition();
+                        int index2 = spinInto.getSelectedItemPosition();
+                        float value = Float.parseFloat(input);
+                        float result = value / MASS_RATIOS[index1] * MASS_RATIOS[index2];
+                        tvResult.setText(String.valueOf(result));
+                    }
+                    break;
+
+                case "temperature":
+                    if (input.trim().length() != 0) {
+                        String spinnerFrom = spinFrom.getSelectedItem().toString();
+                        String spinnerInto = spinInto.getSelectedItem().toString();
+                        double value = Double.parseDouble(input);
+                        double result;
+
+                        if (spinnerFrom.equals("Celsius") && spinnerInto.equals("Celsius")) {
+                            result = value;
                             tvResult.setText(String.valueOf(result));
                         }
-
-                    case "mass":
-                        if(input.trim().length()!=0){
-                            int index1 = spinFrom.getSelectedItemPosition();
-                            int index2 = spinInto.getSelectedItemPosition();
-                            float value = Float.parseFloat(input);
-                            float result = value / MASS_RATIOS[index1] * MASS_RATIOS[index2];
+                        if (spinnerFrom.equals("Fahrenheit") && spinnerInto.equals("Fahrenheit")) {
+                            result = value;
                             tvResult.setText(String.valueOf(result));
                         }
-
-                    case "temperature":
-                        if(input.trim().length()!=0){
-                            String spinnerFrom = spinFrom.getSelectedItem().toString();
-                            String spinnerInto = spinInto.getSelectedItem().toString();
-                            double value = Double.parseDouble(input);
-                            double result;
-
-                            if(spinnerFrom.equals("Celsius") && spinnerInto.equals("Celsius")){
-                                result = value;
-                                tvResult.setText(String.valueOf(result));
-                            }
-                            if(spinnerFrom.equals("Fahrenheit") && spinnerInto.equals("Fahrenheit")){
-                                result = value;
-                                tvResult.setText(String.valueOf(result));
-                            }
-                            if(spinnerFrom.equals("Celsius") && spinnerInto.equals("Fahrenheit")){
-                                result = celsius2Fahrenheit(value);
-                                tvResult.setText(String.valueOf(result));
-                            }
-                            if(spinnerFrom.equals("Fahrenheit") && spinnerInto.equals("Celsius")){
-                                result = fahrenheit2Celsius(value);
-                                tvResult.setText(String.valueOf(result));
-                            }
+                        if (spinnerFrom.equals("Celsius") && spinnerInto.equals("Fahrenheit")) {
+                            result = celsius2Fahrenheit(value);
+                            tvResult.setText(String.valueOf(result));
                         }
-                }
-
-                //todo: add results to a string for history [e.g. input,unit,result,unit]
+                        if (spinnerFrom.equals("Fahrenheit") && spinnerInto.equals("Celsius")) {
+                            result = fahrenheit2Celsius(value);
+                            tvResult.setText(String.valueOf(result));
+                        }
+                    }
+                    break;
             }
+
+            //todo: add results to a string for history [e.g. input,unit,result,unit]
         });
     }
 
-    public static double celsius2Fahrenheit(double c){
-        return 32+c*9/5;
+    public static double celsius2Fahrenheit(double c) {
+        return 32 + c * 9 / 5;
     }
-    public static double fahrenheit2Celsius(double f){
-        return (f-32)*5/9;
+
+    public static double fahrenheit2Celsius(double f) {
+        return (f - 32) * 5 / 9;
     }
 
     private void initViews(View view) {

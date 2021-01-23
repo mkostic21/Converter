@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity implements ButtonClickListen
 
     @Override
     public void onButtonClick(String conversionType) {
-        //TODO click method
-
         pagerAdapter.setConversionType(conversionType);
         viewPager.setCurrentItem(1); //switch to input fragment
         pagerAdapter.notifyDataSetChanged();
