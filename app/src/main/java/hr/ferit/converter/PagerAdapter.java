@@ -8,9 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private static final int NUM_PAGES = 3;
     private static final String TAB_NAME = "#%d";
+    private String historyData = ""; //TODO: <- default string here
+    private String conversionType = ""; //default
 
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
+    public PagerAdapter(@NonNull FragmentManager fm) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
     @NonNull
@@ -20,7 +22,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return HomeFragment.newInstance();
             case 1:
-                return InputFragment.newInstance();
+                return InputFragment.newInstance(conversionType, historyData);
             case 2:
                 return HistoryFragment.newInstance();
             default:
@@ -33,4 +35,20 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         return NUM_PAGES;
     }
 
+    public void setHistoryData(String historyData){
+        if(!historyData.isEmpty()){
+            this.historyData = historyData;
+        }
+    }
+
+    public void setConversionType(String conversionType){
+        if(!conversionType.isEmpty()){
+            this.conversionType = conversionType;
+        }
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
+    }
 }

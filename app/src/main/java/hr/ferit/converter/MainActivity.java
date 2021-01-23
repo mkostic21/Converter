@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements ButtonClickListen
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private PagerAdapter pagerAdapter;
+    private hr.ferit.converter.PagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +27,30 @@ public class MainActivity extends AppCompatActivity implements ButtonClickListen
 
     private void initViews() {
         tabLayout = findViewById(R.id.tab);
-        viewPager = findViewById(R.id.viewPager);
 
+        viewPager = findViewById(R.id.viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setupPager() {
-        pagerAdapter = new hr.ferit.converter.PagerAdapter(getSupportFragmentManager(),
-                FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        pagerAdapter = new hr.ferit.converter.PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
     }
 
     @Override
     public void onButtonClick(String conversionType) {
         //TODO click method
+
+        pagerAdapter.setConversionType(conversionType);
+        viewPager.setCurrentItem(1); //switch to input fragment
+        pagerAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onItemClick(int position, String data) {
+        pagerAdapter.setHistoryData(data);
+        viewPager.setCurrentItem(1); //return to input screen
+        pagerAdapter.notifyDataSetChanged();
+    }
+
 }
