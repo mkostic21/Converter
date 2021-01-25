@@ -13,17 +13,5 @@
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"/>
 
-    <ImageButton
-        android:id="@+id/btnHistory"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-        android:scaleType="fitXY"
-        android:layout_width="@dimen/recycler_item_image_button_XY"
-        android:layout_height="@dimen/recycler_item_image_button_XY"
-        android:layout_gravity="end"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/recycler_item_margin" />
-
 
 </RelativeLayout>

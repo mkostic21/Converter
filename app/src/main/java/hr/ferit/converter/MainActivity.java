@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity implements ButtonClickListener {
+public class MainActivity extends AppCompatActivity implements ButtonClickListener{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements ButtonClickListen
 
     private void initViews() {
         tabLayout = findViewById(R.id.tab);
-
         viewPager = findViewById(R.id.viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -45,10 +44,13 @@ public class MainActivity extends AppCompatActivity implements ButtonClickListen
     }
 
     @Override
-    public void onItemClick(int position, String data) {
-        pagerAdapter.setHistoryData(data);
-        viewPager.setCurrentItem(1); //return to input screen
-        pagerAdapter.notifyDataSetChanged();
+    public void onConvertClick(String input) {
+        pagerAdapter.addHistoryData(input);
+    }
+
+    @Override
+    public void onClearClick() {
+        pagerAdapter.clearHistoryData();
     }
 
 }

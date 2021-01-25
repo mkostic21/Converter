@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InputFragment">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/tvCurrent"
@@ -54,21 +57,13 @@
         android:paddingTop="@dimen/spinner_padding_top"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/header_size"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
 
     <Button
         android:id="@+id/btnConvert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/convert"
-        android:layout_below="@id/tvResult"
         android:layout_marginTop="@dimen/convert_button_margin_top"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

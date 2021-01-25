@@ -10,8 +10,8 @@
     <string name="temperature">temperature</string>
     <string name="from">From:</string>
     <string name="into">Into:</string>
-    <string name="export">Export</string>
     <string name="convert">convert</string>
+    <string name="clear">clear</string>
 
     <string-array name="length_array">
         <item>Inches</item>
