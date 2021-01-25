@@ -96,6 +96,7 @@ public class InputFragment extends Fragment {
     private void setupListeners() {
         btnConvert.setOnClickListener(view -> {
             String input = edInput.getText().toString();
+            edInput.setText("");
 
             switch (conversionType) {
                 case "length":
