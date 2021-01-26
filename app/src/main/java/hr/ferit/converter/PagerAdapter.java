@@ -6,11 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private static final int NUM_PAGES = 3;
-    private static final String TAB_NAME = "#%d"; //TODO: add proper tab names
     private String conversionType = ""; //default
     private ArrayList<String> historyData = new ArrayList<>();
 

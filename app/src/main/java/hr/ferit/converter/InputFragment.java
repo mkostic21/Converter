@@ -2,13 +2,6 @@ package hr.ferit.converter;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.renderscript.ScriptGroup;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +11,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import java.math.BigDecimal;
 
 
 public class InputFragment extends Fragment {
@@ -96,6 +95,7 @@ public class InputFragment extends Fragment {
     private void setupListeners() {
         btnConvert.setOnClickListener(view -> {
             String input = edInput.getText().toString();
+
             edInput.setText("");
 
             switch (conversionType) {
@@ -161,6 +161,7 @@ public class InputFragment extends Fragment {
     public static double fahrenheit2Celsius(double f) {
         return (f - 32) * 5 / 9;
     }
+
 
     private void initViews(View view) {
         edInput = view.findViewById(R.id.edInput);

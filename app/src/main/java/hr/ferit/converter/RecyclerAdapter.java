@@ -3,15 +3,11 @@ package hr.ferit.converter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
@@ -31,7 +27,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //TODO: set data in holder here
         holder.displayData(historyData.get(position));
     }
 
@@ -47,6 +42,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public void addToHistory(String input) {
         historyData.add(getItemCount(), input);
-        notifyDataSetChanged();
+        notifyItemInserted(getItemCount());
     }
 }
